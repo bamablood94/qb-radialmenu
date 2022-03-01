@@ -277,7 +277,7 @@ RegisterNetEvent('qb-radialmenu:client:openDoor', function(data)
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:client:setExtra', function(data)
+--[[RegisterNetEvent('qb-radialmenu:client:setExtra', function(data)
     local string = data.id
     local replace = string:gsub("extra", "")
     local extra = tonumber(replace)
@@ -301,7 +301,7 @@ RegisterNetEvent('qb-radialmenu:client:setExtra', function(data)
             QBCore.Functions.Notify(Lang:t("error.not_driver"), 'error', 2500)
         end
     end
-end)
+end)]]
 
 RegisterNetEvent('qb-radialmenu:trunk:client:Door', function(plate, door, open)
     local veh = GetVehiclePedIsIn(PlayerPedId())
