@@ -47,11 +47,11 @@ RadialMenu.prototype.open = function () {
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-RadialMenu.prototype.close = function (bool) {
+RadialMenu.prototype.close = function () {
     var self = this;
 
     if (self.currentMenu) {
-        $.post(`https://qb-radialmenu/closeRadial`, JSON.stringify({ delay: bool }) );
+        $.post('https://qb-radialmenu/closeRadial');
         var parentMenu;
         while (parentMenu = self.parentMenu.pop()) {
             parentMenu.remove();
