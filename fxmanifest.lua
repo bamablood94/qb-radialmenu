@@ -31,4 +31,9 @@ files {
     'html/js/RadialMenu.js',
 }
 
+exports {
+    'AddOption',
+    'RemoveOption',
+}
+
 lua54 'yes'
