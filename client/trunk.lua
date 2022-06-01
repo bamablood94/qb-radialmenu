@@ -105,7 +105,7 @@ RegisterNetEvent('qb-trunk:client:KidnapGetIn', function(veh)
                     if not isBusy then
                         if not isKidnapped then
                             if GetVehicleDoorAngleRatio(closestVehicle, 5) > 0 then
-                                offset = {
+                                local offset = {
                                     x = Config.TrunkClasses[vehClass].x,
                                     y = Config.TrunkClasses[vehClass].y,
                                     z = Config.TrunkClasses[vehClass].z,
@@ -176,7 +176,7 @@ RegisterNetEvent('qb-trunk:client:GetIn', function()
                     if not inTrunk then
                         if not isBusy then
                             if GetVehicleDoorAngleRatio(closestVehicle, 5) > 0 then
-                                offset = {
+                                local offset = {
                                     x = Config.TrunkClasses[vehClass].x,
                                     y = Config.TrunkClasses[vehClass].y,
                                     z = Config.TrunkClasses[vehClass].z,
@@ -264,10 +264,9 @@ CreateThread(function()
                             --QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
                             exports['okokNotify']:Alert('Trunk Closed', Lang:t('error.trunk_closed'), 2500, 'error')
                         end
-                        sleep = 100
+                        Wait(100)
                     end
                     if GetVehicleDoorAngleRatio(vehicle, 5) > 0 then
-                        sleep = 0
                         DrawText3Ds(drawPos.x, drawPos.y, drawPos.z + 0.5, Lang:t("general.close_trunk_button"))
                         if IsControlJustPressed(0, 47) then
                             if not IsVehicleSeatFree(vehicle, -1) then
@@ -275,10 +274,9 @@ CreateThread(function()
                             else
                                 SetVehicleDoorShut(vehicle, 5, false)
                             end
-                            sleep = 100
+                            Wait(100)
                         end
                     else
-                        sleep = 0
                         DrawText3Ds(drawPos.x, drawPos.y, drawPos.z + 0.5, Lang:t("general.open_trunk_button"))
                         if IsControlJustPressed(0, 47) then
                             if not IsVehicleSeatFree(vehicle, -1) then
@@ -286,7 +284,7 @@ CreateThread(function()
                             else
                                 SetVehicleDoorOpen(vehicle, 5, false, false)
                             end
-                            sleep = 100
+                            Wait(100)
                         end
                     end
                 end
