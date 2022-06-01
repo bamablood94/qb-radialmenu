@@ -10,7 +10,7 @@ $(document).ready(function(){
                     createMenu(event.data.items)
                     QBRadialMenu.open();
                 } else {
-                    QBRadialMenu.close();
+                    QBRadialMenu.close(true);
                 }
         }
     });
@@ -23,7 +23,7 @@ function createMenu(items) {
         menuItems   : items,
         onClick     : function(item) {
             if (item.shouldClose) {
-                QBRadialMenu.close();
+                QBRadialMenu.close(true);
             }
             
             if (item.items == null && item.shouldClose != null) {
@@ -35,10 +35,10 @@ function createMenu(items) {
     });
 }
 
+// Close on escape pressed
 $(document).on('keydown', function(e) {
     switch(e.key) {
         case "Escape":
-        case "F1":
             QBRadialMenu.close();
             break;
     }
@@ -46,5 +46,5 @@ $(document).on('keydown', function(e) {
 
 // Close on any key up, hold/release support incase user changes keybind on the fivem side
 $(document).on('keyup', function(e) {
-    QBRadialMenu.close();
+  QBRadialMenu.close();
 });

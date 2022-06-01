@@ -1,6 +1,6 @@
 Config = {}
 
-Config.EnableExtraMenu = true
+Config.EnableExtraMenu = false
 
 Config.MenuItems = {
     [1] = {
@@ -113,7 +113,8 @@ Config.MenuItems = {
                         event = 'qb-houses:client:giveHouseKey',
                         shouldClose = true,
                         items = {}
-                    }, {
+                    }, 
+                    {
                         id = 'removehousekey',
                         title = 'Remove House Keys',
                         icon = 'key',
@@ -121,21 +122,24 @@ Config.MenuItems = {
                         event = 'qb-houses:client:removeHouseKey',
                         shouldClose = true,
                         items = {}
-                    }, {
+                    }, 
+                    {
                         id = 'togglelock',
                         title = 'Toggle Doorlock',
                         icon = 'door-closed',
                         type = 'client',
                         event = 'qb-houses:client:toggleDoorlock',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'decoratehouse',
                         title = 'Decorate House',
                         icon = 'boxes',
                         type = 'client',
                         event = 'qb-houses:client:decorate',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'houseLocations',
                         title = 'Interaction Locations',
                         icon = 'home',
@@ -147,14 +151,16 @@ Config.MenuItems = {
                                 type = 'client',
                                 event = 'qb-houses:client:setLocation',
                                 shouldClose = true
-                            }, {
+                            }, 
+                            {
                                 id = 'setoutift',
                                 title = 'Set Wardrobe',
                                 icon = 'tshirt',
                                 type = 'client',
                                 event = 'qb-houses:client:setLocation',
                                 shouldClose = true
-                            }, {
+                            }, 
+                            {
                                 id = 'setlogout',
                                 title = 'Set Logout',
                                 icon = 'door-open',
@@ -165,7 +171,8 @@ Config.MenuItems = {
                         }
                     }
                 }
-            }, {
+            }, 
+            {
                 id = 'clothesmenu',
                 title = 'Clothing',
                 icon = 'tshirt',
@@ -177,49 +184,56 @@ Config.MenuItems = {
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'Ear',
                         title = 'Ear Piece',
                         icon = 'deaf',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleProps',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'Neck',
                         title = 'Neck',
                         icon = 'user-tie',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'Top',
                         title = 'Top',
                         icon = 'tshirt',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'Shirt',
                         title = 'Shirt',
                         icon = 'tshirt',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'Pants',
                         title = 'Pants',
                         icon = 'user',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'Shoes',
                         title = 'Shoes',
                         icon = 'shoe-prints',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
-                    }, {
+                    }, 
+                    {
                         id = 'meer',
                         title = 'Extras',
                         icon = 'plus',
@@ -291,7 +305,15 @@ Config.MenuItems = {
                         }
                     }
                 }
-            }
+            },
+            {
+                id = 'resethunting',
+                title = 'Reset Hunting',
+                icon = 'fas fa-recycle',
+                type = 'client',
+                event = 'qb-hunting:client:Reset',
+                shouldClose = true
+            }, 
         }
     },
 }
@@ -731,7 +753,7 @@ Config.TrunkClasses = {
     [21] = {allowed = true, x = 0.0, y = -1.0, z = 0.25} -- Trains
 }
 
-Config.ExtrasEnabled = false
+Config.ExtrasEnabled = true
 
 Config.Commands = {
     ["top"] = {

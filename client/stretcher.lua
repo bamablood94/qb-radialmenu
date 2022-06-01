@@ -163,10 +163,12 @@ RegisterNetEvent('qb-radialmenu:client:TakeStretcher', function()
                 isAttached = true
             end)
         else
-            QBCore.Functions.Notify(Lang:t("error.obj_not_found"), 'error')
+            --QBCore.Functions.Notify(Lang:t("error.obj_not_found"), 'error')
+            exports['okokNotify']:Alert('Invalid', Lang:t('error.obj_not_found'), 2500, 'error')
         end
     else
-        QBCore.Functions.Notify(Lang:t("error.not_near_ambulance"), 'error')
+        --QBCore.Functions.Notify(Lang:t("error.not_near_ambulance"), 'error')
+        exports['okokNotify']:Alert('Too Far Away', Lang:t('error.not_near_ambulance'), 2500, 'error')
     end
 end)
 
@@ -186,7 +188,8 @@ RegisterNetEvent('qb-radialmenu:client:RemoveStretcher', function()
                 isLayingOnBed = false
             end
         else
-            QBCore.Functions.Notify(Lang:t("error.far_away"), 'error')
+            --QBCore.Functions.Notify(Lang:t("error.far_away"), 'error')
+            exports['okokNotify']:Alert('Too Far Away', Lang:t('error.far_away'), 2500, 'error')
         end
     end
 end)
@@ -245,7 +248,8 @@ RegisterNetEvent('qb-radialmenu:client:Result', function(isBusy, type)
             AttachEntityToEntity(ped, stretcherObject, 0, 0, 0.0, 1.6, 0.0, 0.0, 360.0, 0.0, false, false, false, false, 2)
             isLayingOnBed = true
         else
-            QBCore.Functions.Notify(Lang:t("error.stretcher_in_use"), "error")
+            --QBCore.Functions.Notify(Lang:t("error.stretcher_in_use"), "error")
+            exports['okokNotify']:Alert('In Use', Lang:t('error.stretcher_in_use'), 2500, 'error')
             isLayingOnBed = false
         end
     else
@@ -259,7 +263,8 @@ RegisterNetEvent('qb-radialmenu:client:Result', function(isBusy, type)
             FreezeEntityPosition(stretcherObject, false)
             isAttached = true
         else
-            QBCore.Functions.Notify(Lang:t("error.stretcher_in_use"), "error")
+            --QBCore.Functions.Notify(Lang:t("error.stretcher_in_use"), "error")
+            exports['okokNotify']:Alert('In Use', Lang:t('error.stretcher_in_use'), 2500, 'error')
             isAttached = false
         end
     end

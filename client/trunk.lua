@@ -87,7 +87,8 @@ RegisterNetEvent('qb-trunk:client:KidnapTrunk', function()
                 TriggerServerEvent("qb-trunk:server:KidnapTrunk", GetPlayerServerId(closestPlayer), closestVehicle)
             end
         else
-            QBCore.Functions.Notify(Lang:t("error.not_kidnapped"), 'error')
+            --QBCore.Functions.Notify(Lang:t("error.not_kidnapped"), 'error')
+            exports['okokNotify']:Alert('Kidnapping', Lang:t('error.not_kidnapped'), 2500, 'error')
         end
     end
 end)
@@ -119,11 +120,13 @@ RegisterNetEvent('qb-trunk:client:KidnapGetIn', function(veh)
                                 inTrunk = true
                                 Wait(500)
                                 SetVehicleDoorShut(closestVehicle, 5, false)
-                                QBCore.Functions.Notify(Lang:t("success.entered_trunk"), 'success', 4000)
+                                --QBCore.Functions.Notify(Lang:t("success.entered_trunk"), 'success', 4000)
+                                exports['okokNotify']:Alert('Entered Trunk', Lang:t('success.entered_trunk'), 4000, 'success')
                                 TrunkCam(true)
                                 isKidnapped = true
                             else
-                                QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                                --QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                                exports['okokNotify']:Alert('Trunk Closed', Lang:t('error.trunk_closed'), 2500, 'warning')
                             end
                         else
                             local vehicle = GetEntityAttachedTo(ped)
@@ -138,21 +141,26 @@ RegisterNetEvent('qb-trunk:client:KidnapGetIn', function(veh)
                                 SetEntityCollision(PlayerPedId(), true, true)
                                 TrunkCam(false)
                             else
-                                QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                                --QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                                exports['okokNotify']:Alert('Trunk Closed', Lang:t('error.trunk_closed'), 2500, 'error')
                             end
                         end
                     else
-                        QBCore.Functions.Notify(Lang:t("error.someone_in_trunk"), 'error', 2500)
+                        --QBCore.Functions.Notify(Lang:t("error.someone_in_trunk"), 'error', 2500)
+                        exports['okokNotify']:Alert('Trunk Occupied', Lang:t('error.someone_in_trunk'), 2500, 'error')
                     end
                 else
-                    QBCore.Functions.Notify(Lang:t("error.already_in_trunk"), 'error', 2500)
+                    --QBCore.Functions.Notify(Lang:t("error.already_in_trunk"), 'error', 2500)
+                    exports['okokNotify']:Alert('Already in Trunk', Lang:t('error.already_in_trunk'), 2500, 'error')
                 end
             else
-                QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+                --QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+                exports['okokNotify']:Alert('Can\'t Enter Trunk', Lang:t('error.cant_enter_trunk'), 2500, 'error')
             end
         end, plate)
     else
-        QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+        --QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+        exports['okokNotify']:Alert('Can\'t Enter Trunk', Lang:t('error.cant_enter_trunk'), 2500, 'error')
     end
 end)
 
@@ -183,26 +191,33 @@ RegisterNetEvent('qb-trunk:client:GetIn', function()
                                 inTrunk = true
                                 Wait(500)
                                 SetVehicleDoorShut(closestVehicle, 5, false)
-                                QBCore.Functions.Notify(Lang:t("success.entered_trunk"), 'success', 4000)
+                                --QBCore.Functions.Notify(Lang:t("success.entered_trunk"), 'success', 4000)
+                                exports['okokNotify']:Alert('Entered Trunk', Lang:t('success.entered_trunk'), 4000, 'success')
                                 TrunkCam(true)
                             else
-                                QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                                --QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                                exports['okokNotify']:Alert('Trunk Closed', Lang:t('error.trunk_closed'), 2500, 'error')
                             end
                         else
-                            QBCore.Functions.Notify(Lang:t("error.someone_in_trunk"), 'error', 2500)
+                            --QBCore.Functions.Notify(Lang:t("error.someone_in_trunk"), 'error', 2500)
+                            exports['okokNotify']:Alert('Someone In Trunk', Lang:t('error.someone_in_trunk'), 2500, 'error')
                         end
                     else
-                        QBCore.Functions.Notify(Lang:t("error.already_in_trunk"), 'error', 2500)
+                        --QBCore.Functions.Notify(Lang:t("error.already_in_trunk"), 'error', 2500)
+                        exports['okokNotify']:Alert('Already In Trunk', Lang:t('error.already_in_trunk'), 2500, 'error')
                     end
                 else
-                    QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+                    --QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+                    exports['okokNotify']:Alert('Can\'t Enter', Lang:t('error.cant_enter_trunk'), 2500, 'error')
                 end
             end, plate)
         else
-            QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+            --QBCore.Functions.Notify(Lang:t("error.cant_enter_trunk"), 'error', 2500)
+            exports['okokNotify']:Alert('Can\'t Enter', Lang:t('error.cant_enter_trunk'), 2500, 'error')
         end
     else
-        QBCore.Functions.Notify(Lang:t("error.no_vehicle_found"), 'error', 2500)
+        --QBCore.Functions.Notify(Lang:t("error.no_vehicle_found"), 'error', 2500)
+        exports['okokNotify']:Alert('Vehicle Not Found', Lang:t('error.no_vehicle_found'), 2500, 'error')
     end
 end)
 
@@ -246,7 +261,8 @@ CreateThread(function()
                             SetEntityCollision(ped, true, true)
                             TrunkCam(false)
                         else
-                            QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                            --QBCore.Functions.Notify(Lang:t("error.trunk_closed"), 'error', 2500)
+                            exports['okokNotify']:Alert('Trunk Closed', Lang:t('error.trunk_closed'), 2500, 'error')
                         end
                         sleep = 100
                     end
